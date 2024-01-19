@@ -11,16 +11,19 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "justMyCode": false
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
         },
         {
-            "name": "Python: run.py",
+            "name": "Python: src/main.py",
             "type": "python",
             "request": "launch",
-            "program": "run.py",
+            "program": "multidbtool/main.py",
             "args": [],
             "console": "integratedTerminal",
-            "justMyCode": false
+            "justMyCode": false,
         },
         {
             "name": "Python: Attach",
@@ -29,8 +32,7 @@
             "connect": {
                 "host": "localhost",
                 "port": 5678
-            },
-            "justMyCode": false
+            }
         }
     ]
 }

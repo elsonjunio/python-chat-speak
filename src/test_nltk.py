@@ -1,8 +1,12 @@
 import pickle
+import nltk
 from nltk.classify import accuracy
 from nltk import NaiveBayesClassifier
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+
+nltk.download('stopwords')
+nltk.download('punkt')
 
 stop_words = stopwords.words('portuguese')
 

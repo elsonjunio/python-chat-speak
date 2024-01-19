@@ -1,14 +1,13 @@
 from typing import Dict
-from nltk_use import NLTKUse
-from speaker import Speaker
-from speech_to_text import SpeechToText
-from chatgpt import ChatGPT
 
+from ext_interfaces.nltk.nltk_use import NLTKUse
+from ext_interfaces.speaker.speaker import Speaker
+from ext_interfaces.s2t.speech_to_text import SpeechToText
+from ext_interfaces.chatgpt.chatgpt import ChatGPT
+
+command_list = ['arquivo', 'silenciar']
 
 class Process(object):
-    to_chatgpt = False
-    w_chatgpt = False
-    mute = True
     last_text = ''
 
     def __init__(self, speaker: Speaker, speech_to_text: SpeechToText, chatgpt: ChatGPT, nltk_use: NLTKUse) -> None:
@@ -19,24 +18,23 @@ class Process(object):
         self.speech_to_text.listen(self.out)
 
     def command(self, cmd: str):
+
+        # problemas de lógica :(
+
         response = self.nltk_use.text(cmd)
-        if response == 'chatgpt':
-            self.to_chatgpt = True
+        
+        if not response or cmd == '' or response in command_list:
             return
 
-        if self.to_chatgpt and not self.w_chatgpt:
-            self.speaker.say(f'enviar texto ao chatgpt:{cmd}')
-            self.last_text = cmd
-            self.w_chatgpt = True
-
-        if self.to_chatgpt and self.w_chatgpt and response == 'sim':
-            text = self.chatgpt.chat(self.last_text, "davinci")
+        if self.last_text and response == 'sim':
+            text = self.chatgpt.chat(self.last_text, "davinci-002")
             self.speaker.say(text)
-            self.to_chatgpt = False
-            self.w_chatgpt = False
-        elif self.to_chatgpt and response == 'nao':
-            self.to_chatgpt = False
-            self.w_chatgpt = False
+            self.last_text = ''
+        elif self.last_text and response == 'nao':
+            self.last_text = ''
+        else:
+            self.last_text = cmd
+            self.speaker.say(f'Enviar ao LLM o text: {cmd}')
 
     def list_devices(self):
         print('Speaker Devices')

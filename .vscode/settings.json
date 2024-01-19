@@ -4,15 +4,36 @@
     "python.analysis.autoImportCompletions": true,
     "code-runner.ignoreSelection": true,
     "code-runner.runInTerminal": true,
-    "python.linting.mypyEnabled": true,
-    "python.linting.flake8Enabled": true,
     "python.testing.unittestEnabled": true,
     "code-runner.executorMap": {
         "python": "venv/bin/python",
     },
-    "editor.formatOnSave": true,
-    "python.linting.flake8Args": [
-        "--max-line-length=160"
+    "editor.formatOnSave": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "explorerExclude.backup": null,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "${workspaceFolder}/tests",  // Substitua pelo caminho do diretório de seus testes
+        "-p",
+        "*_test.py"  // Padrão de nomenclatura de arquivos de teste
     ],
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "python.testing.pytestEnabled": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "black-formatter.path": [
+        "venv/bin/blue"
+    ]
 }
