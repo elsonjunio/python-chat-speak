@@ -1,18 +1,21 @@
-import openai
+from openai import OpenAI
 
 
 class ChatGPT(object):
     def __init__(self, api_key: str) -> None:
-        openai.api_key = api_key
+        self.client = OpenAI(
+            api_key=api_key,
+        )
 
     def chat(self, prompt, engine):
-        completions = openai.Completion.create(
-            engine=engine,
-            prompt=prompt,
-            max_tokens=1024,
-            n=1,
-            stop=None,
-            temperature=0.7,
+        completions = self.client.chat.completions.create(
+            messages=[
+                {
+                    'role': 'user',
+                    'content': prompt,
+                }
+            ],
+            model=engine,
         )
 
         message = completions.choices[0].text

@@ -27,7 +27,7 @@ class Process(object):
             return
 
         if self.last_text and response == 'sim':
-            text = self.chatgpt.chat(self.last_text, "davinci-002")
+            text = self.chatgpt.chat(self.last_text, "gpt-3.5-turbo")
             self.speaker.say(text)
             self.last_text = ''
         elif self.last_text and response == 'nao':
