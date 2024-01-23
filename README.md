@@ -1,6 +1,6 @@
 # python-chat-speak
 
-Este repositório contém um código que integra diversas ferramentas para realizar o reconhecimento de voz (Whisper), geração de texto (ChatGPT) e leitura de textos (pyttsx3). Além disso, utiliza o NLTK para classificar textos e executar ações específicas no script.
+Este repositório contém um código que integra diversas ferramentas para realizar o reconhecimento de voz (Whisper), geração de texto (Llama-cpp/ChatGPT) e leitura de textos (pyttsx3). Além disso, utiliza o NLTK para classificar textos e executar ações específicas no script.
 
 ## Objetivo
 
@@ -10,6 +10,7 @@ O principal propósito deste código é fornecer uma base para estudos e experim
 
 - Whisper (Reconhecimento de Voz): Integração de uma ferramenta de reconhecimento de voz para capturar entrada de áudio.
 - ChatGPT (Geração de Texto): Utilização do modelo ChatGPT para gerar texto com base nas interações e consultas.
+- LLAMA (Geração de Texto): Utilização do modelo llama-cpp para gerar texto com base nas interações e consultas. Referências: [llama-cpp](https://github.com/ggerganov/llama.cpp), [llama-cpp-python](https://python.langchain.com/docs/integrations/llms/llamacpp)
 - pyttsx3 (Leitura de Texto): Implementação de um leitor de texto para proporcionar uma experiência auditiva.
 - NLTK (Processamento de Linguagem Natural): Aplicação para classificação de textos e acionamento de ações específicas.
 

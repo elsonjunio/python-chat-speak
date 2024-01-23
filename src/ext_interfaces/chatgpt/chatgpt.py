@@ -1,13 +1,17 @@
 from openai import OpenAI
 
+from core.llm import LLM
 
-class ChatGPT(object):
-    def __init__(self, api_key: str) -> None:
+
+class ChatGPT(LLM):
+    def __init__(self, api_key: str, engine: str) -> None:
         self.client = OpenAI(
             api_key=api_key,
         )
 
-    def chat(self, prompt, engine):
+        self.engine = engine
+
+    def chat(self, prompt: str):
         completions = self.client.chat.completions.create(
             messages=[
                 {
@@ -15,7 +19,7 @@ class ChatGPT(object):
                     'content': prompt,
                 }
             ],
-            model=engine,
+            model=self.engine,
         )
 
         message = completions.choices[0].text

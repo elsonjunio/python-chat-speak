@@ -5,11 +5,13 @@ from nltk import NaiveBayesClassifier
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
+from core.nlp import NLP
+
 from .nltk_words import DATA, TEST_DATA
 import os.path
 
 
-class NLTKUse(object):
+class NLTKUse(NLP):
     def __init__(self, file_path: str):
         self.stop_words = stopwords.words("portuguese")
         self.data = DATA

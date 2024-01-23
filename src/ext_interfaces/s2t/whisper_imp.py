@@ -2,8 +2,10 @@ from typing import Callable, Dict
 import whisper
 import speech_recognition as sr
 
+from core.speach_to_text import SpeachToText
 
-class SpeechToText(object):
+
+class WhisperImp(SpeachToText):
     def __init__(self, model_dir_download='./', model: str = 'small') -> None:
         """
         model -> tiny.en, tiny, base.en, base, small.en, small, medium.en, medium, large

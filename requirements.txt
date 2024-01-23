@@ -7,3 +7,5 @@ openai==1.8.0
 pysoundfile==0.9.0.post1
 python-dotenv==1.0.0
 nltk==3.8.1
+inject>=5.2.0
+llama_cpp_python==0.2.31

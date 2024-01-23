@@ -1,8 +1,10 @@
 
 import pyttsx3
 
+from core.text_to_speach import TextToSpeach
 
-class Speaker(object):
+
+class Speaker(TextToSpeach):
     def __init__(self):
         self.voices = {}
         self.engine = pyttsx3.init()
