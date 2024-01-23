@@ -35,3 +35,7 @@ Manjaro
 ```bash
 yay -S espeak
 ```
+
+## Modelo para Llama-cpp
+
+Para testes estou usando um modelo que pode ser obtido no [Hugging Face](https://huggingface.co/TheBloke).
